@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import Header from './components/Header';
 import FeedbackList from './components/FeedbackList';
@@ -7,6 +8,11 @@ import FeedbackForm from './components/FeedbackForm';
 
 function App() {
   const [feedback, setFeedbacks] = useState(FeedbackData);
+
+  const addFeedback = (newFeedback) => {
+    newFeedback.id = uuidv4();
+    setFeedbacks([newFeedback, ...feedback]);
+  };
 
   const deleteFeedback = (id) => {
     if (window.confirm('Are you sure you want to delete this feedback?')) {
@@ -18,7 +24,7 @@ function App() {
     <>
       <Header></Header>
       <div className="container">
-        <FeedbackForm></FeedbackForm>
+        <FeedbackForm handleAdd={addFeedback} />
         <FeedbackStats feedbacks={feedback}></FeedbackStats>
         <FeedbackList
           feedbacks={feedback}
