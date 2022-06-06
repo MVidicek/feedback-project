@@ -4,10 +4,10 @@ import Button from './shared/Button';
 import RatingSelect from './RatingSelect';
 
 function FeedbackForm({ handleAdd }) {
-  cons[(text, setText)] = useState('');
-  cons[(rating, setRating)] = useState(10);
-  cons[(btnDisabled, setBtnDisabled)] = useState(true);
-  cons[(message, setMessage)] = useState('');
+  const [text, setText] = useState('');
+  const [rating, setRating] = useState(10);
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [message, setMessage] = useState('');
 
   const handleTextChange = (e) => {
     if (text === '') {

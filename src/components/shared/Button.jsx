@@ -14,7 +14,7 @@ Button.defaultProps = {
   isDisabled: false,
 };
 
-Butotn.propTypes = {
+Button.propTypes = {
   children: PropTypes.node.isRequired,
   version: PropTypes.string,
   type: PropTypes.string,

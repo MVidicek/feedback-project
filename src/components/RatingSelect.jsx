@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-useState;
-
 function RatingSelect({ selected }) {
   const [rating, setRating] = useState(10);
 
