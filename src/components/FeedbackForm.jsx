@@ -17,23 +17,22 @@ function FeedbackForm() {
     if (feedbackEdit.edit === true) {
       setBtnDisabled(false);
       setText(feedbackEdit.item.text);
-      setText(feedbackEdit.item.rating);
+      setRating(feedbackEdit.item.rating);
     }
   }, [feedbackEdit]);
 
-  const handleTextChange = (e) => {
-    if (text === '') {
+  const handleTextChange = ({ target: { value } }) => {
+    if (value === '') {
       setBtnDisabled(true);
-      setMessage('Please enter a feedback');
-    } else if (text !== '' && text.trim.length <= 10) {
-      setMessage('Please enter a longer feedback');
+      setMessage(null);
+    } else if (value.trim().length < 10) {
+      setMessage('Text must be at least 10 characters');
       setBtnDisabled(true);
     } else {
-      setMessage('');
+      setMessage(null);
       setBtnDisabled(false);
     }
-
-    setText(e.target.value);
+    setText(value);
   };
 
   const handleSubmit = (e) => {
@@ -59,7 +58,7 @@ function FeedbackForm() {
     <Card>
       <form onSubmit={handleSubmit}>
         <h2>How would you rate your service with us</h2>
-        <RatingSelect select={(rating) => setRating(rating)} />
+        <RatingSelect select={setRating} selected={rating} />
         <div className="input-group">
           <input
             onChange={handleTextChange}
