@@ -17,7 +17,7 @@ Context API
 HTTP Requests
 
 <p align="center">
-  <img src = "feedback_app.jpg" width=700>
+  <img src = "feedback-app.JPG" width=700>
 </p>
 
 # Usage
